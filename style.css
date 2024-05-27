@@ -1,21 +1,13 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: whitesmoke;
-}
 
 #gameCanvas {
     border: 1px solid #fff;
 }
 
-
-
 .container {
     display: flex;
+    margin: auto;
     align-items: center;
+    position: relative;
     justify-content: space-between;
 }
 
@@ -23,13 +15,83 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
-
 
 .range-input {
-    position: absolute;
-    z-index: 2;
-    top: 100px; /* Anpassen, um die gewünschte Positionierung zu erreichen */
-    left: 45%; /* Anpassen, um die gewünschte Positionierung zu erreichen */
+    width: 1200px; /* Adjust width if necessary */
+    margin-top: 20px; /* Add margin for spacing */
 }
 
+@keyframes penaltyAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scoreAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.penalty {
+    animation: penaltyAnimation 1s ease-out;
+    visibility: hidden;
+    position: relative;
+    margin: 5px;
+}
+
+.score {
+    animation: scoreAnimation 1s ease-out;
+    position: relative;
+    margin: 5px;
+    padding: 5px;
+}
+
+.effect {
+    position: absolute;
+    pointer-events: none;
+    margin-bottom: 50px;
+    margin-left: 25px;    
+    overflow: visible;
+    visibility: hidden;
+}
+
+
+@keyframes particleEffect {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(50px, -50px) scale(0);
+        opacity: 0;
+    }
+}
+
+.particle {
+    width: 5px;
+    height: 5px;
+    background: rgb(53, 29, 28);
+    position: absolute;
+    animation: particleEffect 1s linear;
+}
