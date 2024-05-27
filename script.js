@@ -23,10 +23,10 @@ let red = 'f00';
 let blue = '#00f';
 // Definition der Bilder für die Blöcke
 const redBlockImage = new Image();
-redBlockImage.src = 'red_block.png'; // Passe den Pfad entsprechend deiner Dateistruktur an
+redBlockImage.src = 'red_block.png';
 
 const blueBlockImage = new Image();
-blueBlockImage.src = 'blue_block.png'; // Passe den Pfad entsprechend deiner Dateistruktur an
+blueBlockImage.src = 'blue_block.png';
 let ballX2 = 3 * canvas.width / 4;
 let ballY2 = canvas.height / 2;
 
@@ -87,8 +87,8 @@ function drawFields() {
             } else {
                 ctx.drawImage(blueBlockImage, x, y, fieldSize, fieldSize);
             }
-            ctx.strokeStyle = '#000'; // Rahmenfarbe
-            ctx.strokeRect(x, y, fieldSize, fieldSize); // Rahmen zeichnen
+            ctx.strokeStyle = '#000'; 
+            ctx.strokeRect(x, y, fieldSize, fieldSize);
         }
     }
 }
@@ -189,14 +189,14 @@ function updateBallPosition() {
 function checkBallPaddleCollision() {
     // Ball 1 mit Paddle 1
     if (ballX1 - ballRadius < paddleWidth && ballY1 > leftPaddleY && ballY1 < leftPaddleY + paddleHeight) {
-        ballSpeedX1 = -ballSpeedX1; // Richtung umkehren
+        ballSpeedX1 = -ballSpeedX1;
         ballX1 += ballSpeedX1 > 0 ? 5 : -5;
         return true;
     }
 
     // Ball 2 mit Paddle 2
     if (ballX2 + ballRadius > canvas.width - paddleWidth && ballY2 > rightPaddleY && ballY2 < rightPaddleY + paddleHeight) {
-        ballSpeedX2 = -ballSpeedX2; // Richtung umkehren
+        ballSpeedX2 = -ballSpeedX2;
         ballX2 += ballSpeedX2 > 0 ? 5 : -5;
         return true;
     }
@@ -209,9 +209,9 @@ function scoreUpdate(elementid){
     // Zeige die Strafe an und füge die Animationsklasse hinzu
     const penaltyElement = document.getElementById(elementid);
     penaltyElement.style.visibility = 'visible';
-    penaltyElement.style.animation = 'none'; // Animation zurücksetzen
+    penaltyElement.style.animation = 'none';
     setTimeout(() => {
-        penaltyElement.style.animation = ''; // Animation neu starten
+        penaltyElement.style.animation = '';
     }, 10);
 }
 
@@ -224,9 +224,9 @@ function backwallTouched(ballColor) {
     // Zeige die Strafe an und füge die Animationsklasse hinzu
     const penaltyElement = document.getElementById(penaltyId);
     penaltyElement.style.visibility = 'visible';
-    penaltyElement.style.animation = 'none'; // Animation zurücksetzen
+    penaltyElement.style.animation = 'none';
     setTimeout(() => {
-        penaltyElement.style.animation = ''; // Animation neu starten
+        penaltyElement.style.animation = '';
     }, 10);
 
     // Erzeuge Partikel-Effekt
@@ -234,7 +234,7 @@ function backwallTouched(ballColor) {
 
     setTimeout(() => {
         penaltyElement.style.visibility = 'hidden';
-    }, 1000); // Versteckt die Anzeige nach 1 Sekunde
+    }, 1000); 
 
 
     let ownFields = [];
@@ -298,7 +298,7 @@ function createParticles(elementId, count) {
     element.style.visibility = 'visible';
     setTimeout(() => {
         element.style.visibility = 'hidden';
-    }, 1000); // Versteckt die Anzeige nach 1 Sekunde
+    }, 1000); 
 }
 
 
@@ -346,7 +346,7 @@ document.addEventListener('keyup', (event) => {
 });
 
 penaltyRange.addEventListener('input', function() {
-    // Den aktuellen Wert des Inputs abrufen
+
 
     const value = penaltyRange.value;
     penaltyDamage = value; 
@@ -356,7 +356,6 @@ penaltyRange.addEventListener('input', function() {
 });
 
 rangeInput.addEventListener('input', function() {
-    // Den aktuellen Wert des Inputs abrufen
     const value = rangeInput.value;
     let x = parseInt(value) - speed;
     speed = parseInt(value);

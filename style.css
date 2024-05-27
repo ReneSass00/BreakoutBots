@@ -19,8 +19,8 @@
 }
 
 .range-input {
-    width: 1200px; /* Adjust width if necessary */
-    margin-top: 20px; /* Add margin for spacing */
+    width: 1200px;
+    margin-top: 20px; 
 }
 
 @keyframes penaltyAnimation {
